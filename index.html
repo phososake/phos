@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #07cdff;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+        nav img {
+            margin-right: 20px;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav ul li a:hover {
+            color: #ff0000;
+        }
+        .container {
+            padding: 20px;
+        }
+        .bmi-form {
+            max-width: 400px;
+            margin: auto;
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(9, 240, 75, 0.1);
+        }
+        .bmi-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .bmi-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3410ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .bmi-form button:hover {
+            background-color: #555;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        .content {
+            max-width: 600px;
+            margin: auto;
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        .team-container {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .team-member {
+            text-align: center;
+            max-width: 200px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .team-image {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .name {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #333;
+        }
+        .role {
+            font-size: 1em;
+            color: #777;
+        }
+    
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px; 
+}
+
+nav ul a {
+    text-decoration: none;
+    color: #000; 
+    font-size: 18px;
+    font-weight: bold;
+}
+
+nav ul a:hover {
+    color: #ff0000; 
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="logo.png" alt="Logo" width="100">
+        <ul>
+            <li><a href="#home" onclick="showSection('home')">Document</a></li>
+            <li><a href="#calculator" onclick="showSection('calculator')">Calculator</a></li>
+            <li><a href="#team" onclick="showSection('team')">Team</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div id="home" class="content">
+            <h2>ឯកសារយោង</h2>
+            <strong><p>តើសន្ទស្សន៍ម៉ាសរាងកាយ (BMI) ជាអ្វី?</p></strong>
+
+               <p>សន្ទស្សន៍ម៉ាសរាងកាយគឺជារង្វាស់នៃជាតិខ្លាញ់រាងកាយដោយផ្អែកលើកម្ពស់ និងទម្ងន់។ វាត្រូវបានប្រើសម្រាប់មនុស្សពេញវ័យ និងជួយកំណត់ហានិភ័យរបស់អ្នកចំពោះបញ្ហាសុខភាពដែលទាក់ទងនឹងទម្ងន់។ នៅពេលដែលអ្នកគណនា BMI របស់អ្នក អ្នកនឹងត្រូវបានគេចាត់ថ្នាក់ទៅជាប្រភេទសុខភាពមួយក្នុងចំណោមបួនប្រភេទ៖ ខ្វះទម្ងន់ ទម្ងន់ធម្មតា លើសទម្ងន់ និងធាត់។ វាក៏អាចត្រូវបានជះឥទ្ធិពលដោយអាយុ ភេទ និងសូម្បីតែជាតិសាសន៍ ជាពិសេសសម្រាប់ជនជាតិអាស៊ី។</p>
+            <p>
+                <strong>សមីការគណនា</strong><br>
+                សមីការគណនា BMI គឺជា:<br>
+                BMI = ទម្ងន់ (kg) / កម្ពស់ (m)<sup>2</sup><br>
+                ឬ<br>
+                BMI = កម្ពស់ (m)<sup>2</sup> / ទម្ងន់ (kg)
+            </p>
+            <p>
+                <strong>ប្រភេទ BMI:</strong><br>
+                មានភាពស្គម: BMI < 18.5<br>
+                មានទម្ងន់ធម្មតា: BMI 18.5 - 24.9<br>
+                មានភាពធាត់: BMI 25 - 29.9<br>
+                ធាត់ខ្លាំង: BMI ≥ 30
+            </p>
+            <p>
+                <strong>ការពិចារណា:</strong><br>
+                មានភាពស្គម: អាចមានហានិភ័យសុខភាព<br>
+                មានទម្ងន់ធម្មតា: សុខភាពល្អ<br>
+                មានភាពធាត់: អាចមានហានិភ័យជំងឺ<br>
+                ធាត់ខ្លាំង: មានហានិភ័យសុខភាពខ្ពស់
+            </p>
+            <p>
+                <strong>កំណត់ត្រា:</strong><br>
+                BMI មិនអាចបង្ហាញសុខភាពជាទូទៅបានទាំងស្រុងនោះទេ ហើយគួរត្រូវបានប្រើជាមួយការវាស់រូបភាពផ្សេងទៀត។
+            </p>
+        </div>
+
+        <div id="calculator" class="bmi-form" style="display: none;">
+            <h2 class="text-center">គណនា សន្ទស្សន៍ម៉ាសរាងកាយ</h2>
+            <form id="bmiForm">
+                <div class="form-group">
+                    <label for="name">ឈ្មោះ:</label>
+                    <input type="text" class="form-control" id="name" placeholder="ឈ្មោះ" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="age">អាយុ:</label>
+                    <input type="number" class="form-control" id="age" placeholder="អាយុ (ឆ្នាំ)" min="2" max="120" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">ភេទ:</label>
+                    <select class="form-control" id="gender" required>
+                        <option value="male">ប្រុស</option>
+                        <option value="female">ស្រី</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="height">កម្ពស់ (cm):</label>
+                    <input type="number" class="form-control" id="height" placeholder="កម្ពស់ (cm)" required>
+                </div>
+                <div class="form-group">
+                    <label for="weight">ទម្ងន់ (kg):</label>
+                    <input type="number" class="form-control" id="weight" placeholder="ទម្ងន់ (kg)" required>
+                </div>
+                <button type="button" class="btn btn-primary btn-block" onclick="calculateBMI()">គណនា</button>
+            </form>
+            <div class="result mt-3" id="result"></div>
+            <hr>
+            <p class="text-center mt-3" style="color:rgb(253, 12, 12);">
+                របៀបគណនា BMI = ទម្ងន់ ÷ (កម្ពស់ x កម្ពស់) <br>
+                BMI ពាក្យពេញ = Body Mass Index = សន្ទស្សន៍ម៉ាសរាងកាយ
+            </p>
+        </div>
+
+        <div id="team" class="content" style="display: none;">
+            <h2>សមាជិក ក្រុម</h2>
+            <div class="team-container">
+                <div class="team-member">
+                    <img src="net.jpg" alt="Description of Image" width="50">
+                    <p class="name">Sreynet Ly</p>
+                    <p class="role">female</p>
+                </div>
+                <div class="team-member">
+                    <img src="pear.jpg" alt="Description of Image" width="50">
+                    <p class="name">Morm Sophea</p>
+                    <p class="role">male</p>
+                </div>
+                <div class="team-member">
+                    <img src="dom.jpg" alt="Description of Image" width="50">
+                    <p class="name">Chek Sereyodam</p>
+                    <p class="role">male</p>
+                </div>
+                <div class="team-member">
+                    <img src="phos.jpg" alt="Description of Image" width="50">
+                    <p class="name">Oun Chhunheng</p>
+                    <p class="role">male</p>
+                </div>
+                <div class="team-member">
+                    <img src="phos1.jpg" alt="Description of Image" width="50">
+                    <p class="name">Somphos Thor</p>
+                    <p class="role">male</p>
+            
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(section) {
+           
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('calculator').style.display = 'none';
+            document.getElementById('team').style.display = 'none';
+
+           
+            document.getElementById(section).style.display = 'block';
+        }
+
+        function calculateBMI() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value) / 100; // Convert cm to meters
+            const resultDiv = document.getElementById('result');
+
+            if (weight > 0 && height > 0) {
+                const bmi = (weight / (height * height)).toFixed(1);
+                let category = '';
+
+                if (bmi < 18.5) {
+                    category = 'រូបរាងកាយមានភាពស្គម';
+                } else if (bmi < 24.9) {
+                    category = 'រូបរាងកាយមានភាពធម្មតាស្តង់ដា';
+                } else if (bmi < 29.9) {
+                    category = 'រូបរាងកាយមានភាពធាត់';
+                } else {
+                    category = 'រូបរាងកាយមានភាពធាត់ខ្លាំង';
+                }
+
+                resultDiv.innerHTML = `BMI = <strong>${bmi}</strong><br>សភាពនៃរាងកាយគឺ: <strong>${category}</strong>`;
+            } else {
+                resultDiv.innerHTML = 'សូមបញ្ចូលទិន្នន័យអោយពេញលេញ។';
+            }
+        }
+    </script>
+</body>
+</html>
